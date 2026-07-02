@@ -735,20 +735,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="https://formspree.io/f/mlgypwnp" method="POST">
+                    <form id="contattami">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="name" name="name" required data-fs-field>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" required data-fs-field>
+                            <span data-fs-error="email"></span>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Messaggio</label>
-                            <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="3" required data-fs-field></textarea>
+                            <span data-fs-error="message"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary">Invia</button>
+                        <button type="submit" class="btn btn-primary" data-fs-submit-btn>Invia</button>
+                        <div data-fs-success>Grazie per il messaggio!</div>
+                        <div data-fs-error>Oops! C'è stato un problema nell'invio del messaggio.</div>
                     </form>
                 </div>
             </div>
@@ -934,6 +938,18 @@
         
     });
     </script>
-
+<!-- Place these scripts at the end of the body tag -->
+<script>
+  window.formspree =
+    window.formspree ||
+    function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+  formspree("initForm", {
+    formElement: "#contattami",
+    formId: "mlgypwnp",
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
