@@ -1,4 +1,6 @@
 # linktree
-my "linktree" clone, just static HTML + CSS + JS
+My "linktree" clone, just static HTML + CSS + JS
 
-derived from the awesome work of https://github.com/lbresler/link-bio 
+Derived from the awesome work of https://github.com/lbresler/link-bio 
+
+Deployed to GitHub pages at https://garuti.it
